@@ -5,7 +5,7 @@ pipeline {
         }
     }
     options {
-    buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
     }
     parameters {
         string(name: 'BRANCH_NAME', defaultValue: 'main', description: 'Enter the branch to be deployed')
@@ -17,11 +17,11 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git clone 'https://github.com/Prateekbhatt789/Jenkins.git'
+                git url: "${git_url}", branch: "${params.BRANCH_NAME}"
             }
         }
 
-        stage('Code Build ') {
+        stage('Code Build') {
             steps {
                 sh """
                 echo 'Code Build Stage'
@@ -29,7 +29,7 @@ pipeline {
             }
         }
 
-        stage('Image Build & push ') {
+        stage('Image Build & push') {
             steps {
                 sh '''
                 echo 'Image Build & push Stage'
@@ -45,6 +45,7 @@ pipeline {
             }
         }
     }
+
     post {
         always {
             cleanWs()
