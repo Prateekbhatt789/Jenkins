@@ -11,7 +11,7 @@ pipeline {
         string(name: 'BRANCH_NAME', defaultValue: 'main', description: 'Enter the branch to be deployed')
     }
     environment {
-        git_url = "git@github.com:Prateekbhatt789/Jenkins.git"
+        git_url = "https://github.com/Prateekbhatt789/Jenkins.git"
     }
 
     stages {
