@@ -32,7 +32,7 @@ pipeline {
         stage('Image Build & push') {
             steps {
                 sh '''
-                echoo 'Image Build & push Stage'
+                echo 'Image Build & push Stage'
                 '''
             }
         }
