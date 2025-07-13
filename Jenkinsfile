@@ -15,9 +15,9 @@ pipeline {
     }
 
     stages {
-        stage('Code Checkout') {
+        stage('Clone') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '${BRANCH_NAME}']], extensions: [], userRemoteConfigs: [[url: git_url]]])
+                git 'https://github.com/Prateekbhatt789/Jenkins.git'
             }
         }
 
