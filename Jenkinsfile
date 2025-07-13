@@ -8,7 +8,7 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
     }
     parameters {
-        string(name: 'BRANCH_NAME', defaultValue: 'master', description: 'Enter the branch to be deployed')
+        string(name: 'BRANCH_NAME', defaultValue: 'main', description: 'Enter the branch to be deployed')
     }
     environment {
         git_url = "git@github.com:Prateekbhatt789/Jenkins.git"
